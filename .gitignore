@@ -45,3 +45,22 @@ db.sqlite3
 #images/gif
 *.png
 *.gif
+
+# Virtual Environment
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Database
+db.sqlite3
+
+# Environment Variables / Secrets
+.env
+
+# NodeJS Frontend Cache/Modules (Just to be safe)
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
