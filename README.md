@@ -39,6 +39,11 @@ We approached this by systematically stepping through the backend first: establi
 **Workshop Statistics After:**  
 ![Table After](./screenshots/after2.png)
 
+**Responsiveness Demo:**  
+![Responsive 1](./screenshots/res1.png)
+
+![Responsive 2](./screenshots/res2.png)
+
 ---
 
 ## Setup Instructions
