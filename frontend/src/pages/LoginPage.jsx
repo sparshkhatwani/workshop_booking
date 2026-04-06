@@ -39,7 +39,7 @@ export default function LoginPage() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#f8fbff_0%,#eef4ff_55%,#fff8f3_100%)] px-3 py-5 lg:px-4">
-      <div className="fixed inset-0 -z-10 overflow-hidden">
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute left-[3%] top-[10%] h-64 w-64 rounded-full bg-orange-300/20 blur-3xl" />
         <div className="absolute bottom-[8%] right-[4%] h-72 w-72 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
@@ -62,11 +62,6 @@ export default function LoginPage() {
               <h2 className="mt-7 text-4xl font-bold leading-tight">
                 Learn, build, and grow with impactful open-source workshops.
               </h2>
-
-              {/* <p className="mt-5 text-base leading-8 text-white/82">
-                Join a learning ecosystem where workshops are designed to be practical,
-                collaborative, and accessible for students, faculty, and institutions.
-              </p> */}
             </div>
 
             <div className="grid grid-cols-3 gap-3">
@@ -86,7 +81,7 @@ export default function LoginPage() {
           </div>
         </aside>
 
-        <main className="flex min-h-[560px] items-start justify-center pt-6">
+        <main className="relative z-10 flex min-h-[560px] items-start justify-center pt-6">
           <div className="w-full max-w-[560px]">
             <div className="mb-7 text-center">
               <div className="mb-4 flex items-center justify-center gap-4">
@@ -110,7 +105,7 @@ export default function LoginPage() {
               </p>
             </div>
 
-            <div className="card border border-white/70 bg-white/80 p-8 shadow-[0_22px_55px_-20px_rgba(15,23,42,0.18)] backdrop-blur-xl">
+            <div className="card relative z-10 border border-white/70 bg-white/80 p-8 shadow-[0_22px_55px_-20px_rgba(15,23,42,0.18)] backdrop-blur-xl">
               {error && (
                 <div className="mb-5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm font-medium text-red-700 animate-fade-in">
                   <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,7 +130,7 @@ export default function LoginPage() {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="input-field"
+                    className="input-field relative z-10"
                     placeholder="Enter your username"
                     required
                     autoFocus
@@ -151,7 +146,7 @@ export default function LoginPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="input-field"
+                    className="input-field relative z-10"
                     placeholder="Enter your password"
                     required
                   />
