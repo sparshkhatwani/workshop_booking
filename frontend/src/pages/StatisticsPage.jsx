@@ -12,7 +12,7 @@ export default function StatisticsPage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [workshopTypes, setWorkshopTypes] = useState([]);
-  const [chartMode, setChartMode] = useState(null); // 'states' | 'types'
+  const [chartMode, setChartMode] = useState(null);
   const [filters, setFilters] = useState({
     from_date: '',
     to_date: '',
@@ -65,8 +65,10 @@ export default function StatisticsPage() {
   const loadStats = (params = {}) => {
     setLoading(true);
     const query = { ...filters, ...params };
-    // Remove empty values
-    Object.keys(query).forEach((k) => { if (!query[k]) delete query[k]; });
+    Object.keys(query).forEach((k) => {
+      if (!query[k]) delete query[k];
+    });
+
     fetchPublicStats(query)
       .then(setData)
       .catch((err) => {
@@ -82,14 +84,22 @@ export default function StatisticsPage() {
   };
 
   const handleClear = () => {
-    const cleared = { from_date: '', to_date: '', state: '', workshop_type: '', sort: 'date' };
+    const cleared = {
+      from_date: '',
+      to_date: '',
+      state: '',
+      workshop_type: '',
+      sort: 'date',
+    };
     setFilters(cleared);
     loadStats(cleared);
   };
 
   const handleDownload = () => {
     const query = { ...filters };
-    Object.keys(query).forEach((k) => { if (!query[k]) delete query[k]; });
+    Object.keys(query).forEach((k) => {
+      if (!query[k]) delete query[k];
+    });
     window.open(getStatsDownloadUrl(query), '_blank');
   };
 
@@ -103,26 +113,24 @@ export default function StatisticsPage() {
   };
 
   return (
-    <div className="space-y-6 animate-slide-up">
-      {/* Header */}
+    <div className="relative z-10 space-y-6 animate-slide-up pointer-events-auto">
       <div>
         <h1 className="text-2xl font-bold text-surface-900 tracking-tight">Workshop Statistics</h1>
-        <p className="text-surface-500 text-sm mt-1">Browse and analyze workshop data across India</p>
+        <p className="mt-1 text-sm text-surface-500">Browse and analyze workshop data across India</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Filters sidebar */}
-        <div className="lg:col-span-1">
-          <form onSubmit={handleFilter}>
-            <div className="card p-5 space-y-4">
+      <div className="relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-4 pointer-events-auto">
+        <div className="relative z-10 lg:col-span-1 pointer-events-auto">
+          <form onSubmit={handleFilter} className="pointer-events-auto">
+            <div className="card space-y-4 p-5">
               <div className="flex items-center justify-between">
                 <h3 className="font-bold text-surface-900">Filters</h3>
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="text-xs font-medium text-primary-600 hover:text-primary-700 flex items-center gap-1"
+                  className="flex cursor-pointer items-center gap-1 text-xs font-medium text-primary-600 hover:text-primary-700"
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                   Clear
@@ -130,7 +138,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-500 mb-1">From Date</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500">From Date</label>
                 <input
                   type="date"
                   value={filters.from_date}
@@ -140,7 +148,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-500 mb-1">To Date</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500">To Date</label>
                 <input
                   type="date"
                   value={filters.to_date}
@@ -150,7 +158,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-500 mb-1">Workshop</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500">Workshop</label>
                 <select
                   value={filters.workshop_type}
                   onChange={(e) => setFilters({ ...filters, workshop_type: e.target.value })}
@@ -158,26 +166,30 @@ export default function StatisticsPage() {
                 >
                   <option value="">All Workshops</option>
                   {workshopTypes.map((wt) => (
-                    <option key={wt.id} value={wt.id}>{wt.name}</option>
+                    <option key={wt.id} value={wt.id}>
+                      {wt.name}
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-500 mb-1">State</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500">State</label>
                 <select
                   value={filters.state}
                   onChange={(e) => setFilters({ ...filters, state: e.target.value })}
                   className="input-field text-sm"
                 >
                   {states.map((s) => (
-                    <option key={s.value} value={s.value}>{s.label}</option>
+                    <option key={s.value} value={s.value}>
+                      {s.label}
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-500 mb-1">Sort by</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500">Sort by</label>
                 <select
                   value={filters.sort}
                   onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
@@ -189,8 +201,8 @@ export default function StatisticsPage() {
               </div>
 
               <div className="flex gap-2 pt-2">
-                <button type="submit" className="btn-success flex-1 text-sm">
-                  <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button type="submit" className="btn-success flex-1 cursor-pointer text-sm">
+                  <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
@@ -199,9 +211,9 @@ export default function StatisticsPage() {
                 <button
                   type="button"
                   onClick={handleDownload}
-                  className="btn-primary flex-1 text-sm"
+                  className="btn-primary flex-1 cursor-pointer text-sm"
                 >
-                  <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
                   CSV
@@ -211,35 +223,36 @@ export default function StatisticsPage() {
           </form>
         </div>
 
-        {/* Main content */}
-        <div className="lg:col-span-3 space-y-6">
-          {/* Chart buttons */}
+        <div className="relative z-10 space-y-6 lg:col-span-3 pointer-events-auto">
           <div className="flex flex-wrap gap-3">
             <button
+              type="button"
               onClick={() => setChartMode(chartMode === 'states' ? null : 'states')}
-              className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+              className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                 chartMode === 'states'
                   ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                  : 'bg-white text-surface-700 border border-surface-200 hover:bg-surface-50'
+                  : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
               }`}
             >
               <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
                 State Chart
               </span>
             </button>
+
             <button
+              type="button"
               onClick={() => setChartMode(chartMode === 'types' ? null : 'types')}
-              className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+              className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                 chartMode === 'types'
                   ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                  : 'bg-white text-surface-700 border border-surface-200 hover:bg-surface-50'
+                  : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
               }`}
             >
               <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
                 Workshop Chart
@@ -247,10 +260,9 @@ export default function StatisticsPage() {
             </button>
           </div>
 
-          {/* Chart */}
           {chartMode && (
-            <div className="card p-6 animate-slide-up">
-              <h3 className="text-lg font-bold text-surface-900 mb-4">
+            <div className="card animate-slide-up p-6">
+              <h3 className="mb-4 text-lg font-bold text-surface-900">
                 {chartMode === 'states' ? 'State-wise Workshops' : 'Workshop Type Distribution'}
               </h3>
               {getChartData().length > 0 ? (
@@ -282,21 +294,20 @@ export default function StatisticsPage() {
                   </BarChart>
                 </ResponsiveContainer>
               ) : (
-                <div className="text-center py-12 text-surface-400">
+                <div className="py-12 text-center text-surface-400">
                   <p>No data available for this chart</p>
                 </div>
               )}
             </div>
           )}
 
-          {/* Data Table */}
           {loading ? (
             <div className="flex items-center justify-center py-16">
-              <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin" />
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
             </div>
           ) : (
             <div className="card overflow-hidden">
-              <div className="px-6 py-4 border-b border-surface-100 flex items-center justify-between">
+              <div className="flex items-center justify-between border-b border-surface-100 px-6 py-4">
                 <h3 className="font-bold text-surface-900">
                   Workshops
                   {data?.total > 0 && (
@@ -308,45 +319,48 @@ export default function StatisticsPage() {
                 {data?.total_pages > 1 && (
                   <div className="flex items-center gap-2">
                     <button
+                      type="button"
                       disabled={data.page <= 1}
                       onClick={() => loadStats({ page: data.page - 1 })}
-                      className="p-1.5 rounded-lg hover:bg-surface-100 disabled:opacity-40 transition-colors"
+                      className="rounded-lg p-1.5 transition-colors hover:bg-surface-100 disabled:opacity-40 cursor-pointer"
                     >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
-                    <span className="text-xs text-surface-500 font-medium">
+                    <span className="text-xs font-medium text-surface-500">
                       Page {data.page} of {data.total_pages}
                     </span>
                     <button
+                      type="button"
                       disabled={data.page >= data.total_pages}
                       onClick={() => loadStats({ page: data.page + 1 })}
-                      className="p-1.5 rounded-lg hover:bg-surface-100 disabled:opacity-40 transition-colors"
+                      className="rounded-lg p-1.5 transition-colors hover:bg-surface-100 disabled:opacity-40 cursor-pointer"
                     >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
                   </div>
                 )}
               </div>
+
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-surface-100 bg-surface-50/50">
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Sr No.</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Coordinator</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Institute</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Instructor</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Workshop</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Date</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Sr No.</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Coordinator</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Institute</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Instructor</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Workshop</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Date</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-surface-100">
                     {data?.workshops?.length > 0 ? (
                       data.workshops.map((w, i) => (
-                        <tr key={w.id} className="hover:bg-surface-50/50 transition-colors">
+                        <tr key={w.id} className="transition-colors hover:bg-surface-50/50">
                           <td className="px-6 py-4 text-sm text-surface-500">
                             {(data.page - 1) * data.per_page + i + 1}
                           </td>
@@ -355,13 +369,17 @@ export default function StatisticsPage() {
                           <td className="px-6 py-4 text-sm text-surface-600">{w.instructor_name || '—'}</td>
                           <td className="px-6 py-4 text-sm text-surface-600">{w.workshop_type_name}</td>
                           <td className="px-6 py-4 text-sm text-surface-600">
-                            {new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                            {new Date(w.date).toLocaleDateString('en-IN', {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric',
+                            })}
                           </td>
                         </tr>
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={6} className="px-6 py-12 text-center text-surface-400 text-sm">
+                        <td colSpan={6} className="px-6 py-12 text-center text-sm text-surface-400">
                           No workshops found for the selected criteria
                         </td>
                       </tr>
