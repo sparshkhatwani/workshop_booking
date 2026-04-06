@@ -11,10 +11,9 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   const navLinkClass = (path) =>
-    `px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-      isActive(path)
-        ? 'bg-white/20 text-white'
-        : 'text-white/80 hover:text-white hover:bg-white/10'
+    `px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${isActive(path)
+      ? 'bg-white/20 text-white'
+      : 'text-white/80 hover:text-white hover:bg-white/10'
     }`;
 
   return (
