@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchPublicStats, getStatsDownloadUrl, fetchWorkshopTypes } from '../api/client';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const CHART_COLORS = [
   '#3384fc', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6',
@@ -113,6 +114,12 @@ export default function StatisticsPage() {
   };
 
   return (
+    <>
+    <SEO
+      title="Workshop Stats | FOSSEE Workshop Booking"
+      description="Browse and analyze workshop data across India"
+      keywords="FOSSEE, Workshop Booking, IIT Bombay"
+    />
     <div className="relative z-10 space-y-6 animate-slide-up pointer-events-auto">
       <div>
         <h1 className="text-2xl font-bold text-surface-900 tracking-tight">Workshop Statistics</h1>
@@ -129,7 +136,7 @@ export default function StatisticsPage() {
                   type="button"
                   onClick={handleClear}
                   className="flex cursor-pointer items-center gap-1 text-xs font-medium text-primary-600 hover:text-primary-700"
-                >
+                  >
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
@@ -163,7 +170,7 @@ export default function StatisticsPage() {
                   value={filters.workshop_type}
                   onChange={(e) => setFilters({ ...filters, workshop_type: e.target.value })}
                   className="input-field text-sm"
-                >
+                  >
                   <option value="">All Workshops</option>
                   {workshopTypes.map((wt) => (
                     <option key={wt.id} value={wt.id}>
@@ -179,7 +186,7 @@ export default function StatisticsPage() {
                   value={filters.state}
                   onChange={(e) => setFilters({ ...filters, state: e.target.value })}
                   className="input-field text-sm"
-                >
+                  >
                   {states.map((s) => (
                     <option key={s.value} value={s.value}>
                       {s.label}
@@ -194,7 +201,7 @@ export default function StatisticsPage() {
                   value={filters.sort}
                   onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
                   className="input-field text-sm"
-                >
+                  >
                   <option value="date">Oldest</option>
                   <option value="-date">Latest</option>
                 </select>
@@ -212,7 +219,7 @@ export default function StatisticsPage() {
                   type="button"
                   onClick={handleDownload}
                   className="btn-primary flex-1 cursor-pointer text-sm"
-                >
+                  >
                   <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
@@ -230,10 +237,10 @@ export default function StatisticsPage() {
               onClick={() => setChartMode(chartMode === 'states' ? null : 'states')}
               className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                 chartMode === 'states'
-                  ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                  : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
+                ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
+                : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
               }`}
-            >
+              >
               <span className="flex items-center gap-1.5">
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -247,10 +254,10 @@ export default function StatisticsPage() {
               onClick={() => setChartMode(chartMode === 'types' ? null : 'types')}
               className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                 chartMode === 'types'
-                  ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                  : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
+                ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
+                : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
               }`}
-            >
+              >
               <span className="flex items-center gap-1.5">
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -275,7 +282,7 @@ export default function StatisticsPage() {
                       angle={-45}
                       textAnchor="end"
                       height={80}
-                    />
+                      />
                     <YAxis tick={{ fontSize: 12, fill: '#64748b' }} allowDecimals={false} />
                     <Tooltip
                       contentStyle={{
@@ -285,7 +292,7 @@ export default function StatisticsPage() {
                         boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                         fontSize: '13px',
                       }}
-                    />
+                      />
                     <Bar dataKey="count" radius={[6, 6, 0, 0]}>
                       {getChartData().map((_, i) => (
                         <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
@@ -323,7 +330,7 @@ export default function StatisticsPage() {
                       disabled={data.page <= 1}
                       onClick={() => loadStats({ page: data.page - 1 })}
                       className="rounded-lg p-1.5 transition-colors hover:bg-surface-100 disabled:opacity-40 cursor-pointer"
-                    >
+                      >
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
@@ -336,7 +343,7 @@ export default function StatisticsPage() {
                       disabled={data.page >= data.total_pages}
                       onClick={() => loadStats({ page: data.page + 1 })}
                       className="rounded-lg p-1.5 transition-colors hover:bg-surface-100 disabled:opacity-40 cursor-pointer"
-                    >
+                      >
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -392,5 +399,6 @@ export default function StatisticsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

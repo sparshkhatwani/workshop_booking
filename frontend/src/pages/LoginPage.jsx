@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
+import { Helmet } from 'react-helmet-async';
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useAuth();
@@ -38,6 +40,12 @@ export default function LoginPage() {
   };
 
   return (
+    <>
+    <SEO
+      title="Login | FOSSEE Workshop Booking"
+      description="Log in to book and manage FOSSEE workshops conducted by IIT Bombay."
+      keywords="FOSSEE, Workshop Booking, IIT Bombay"
+    />
     <div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#f8fbff_0%,#eef4ff_55%,#fff8f3_100%)] px-3 py-5 lg:px-4">
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute left-[3%] top-[10%] h-64 w-64 rounded-full bg-orange-300/20 blur-3xl" />
@@ -50,7 +58,7 @@ export default function LoginPage() {
             src="logos/img1.jpg"
             alt="FOSSEE workshop session"
             className="absolute inset-0 h-full w-full object-cover"
-          />
+            />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950/86 via-slate-900/55 to-blue-950/50" />
 
           <div className="relative flex min-h-[560px] w-full flex-col justify-between p-7 text-white">
@@ -89,12 +97,12 @@ export default function LoginPage() {
                   src="/logos/fosseelogo.png"
                   alt="FOSSEE"
                   className="h-14 object-contain"
-                />
+                  />
                 <img
                   src="/logos/iitblogo.png"
                   alt="IIT Bombay"
                   className="h-14 object-contain"
-                />
+                  />
               </div>
 
               <h1 className="text-3xl font-bold tracking-tight text-surface-900">
@@ -134,7 +142,7 @@ export default function LoginPage() {
                     placeholder="Enter your username"
                     required
                     autoFocus
-                  />
+                    />
                 </div>
 
                 <div>
@@ -149,7 +157,7 @@ export default function LoginPage() {
                     className="input-field relative z-10"
                     placeholder="Enter your password"
                     required
-                  />
+                    />
                 </div>
 
                 <button
@@ -157,7 +165,7 @@ export default function LoginPage() {
                   type="submit"
                   disabled={loading}
                   className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
-                >
+                  >
                   {loading ? (
                     <div className="flex items-center justify-center gap-2">
                       <div className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
@@ -174,7 +182,7 @@ export default function LoginPage() {
                   <Link
                     to="/register"
                     className="font-semibold text-primary-600 transition-colors hover:text-primary-700"
-                  >
+                    >
                     New around here? Sign up
                   </Link>
                   <span className="text-surface-400">
@@ -191,5 +199,6 @@ export default function LoginPage() {
         </main>
       </div>
     </div>
+     </>
   );
 }
