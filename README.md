@@ -20,6 +20,11 @@ The redesign prioritizes clarity, accessibility, and a modern user experience, e
 * **Elegant Loading States:** Created a dedicated, centered loading spinner sequence replacing abrupt layout shifts while authentication data is verified.
 * **Protected Routes:** Unauthorized users are fluidly redirected back to Login rather than encountering broken empty pages.
 
+## 🔍 Search Engine Optimization (SEO)
+* **Dynamic Meta Tags:** Integrated `react-helmet-async` to dynamically inject page titles, descriptions, and keywords, improving search engine crawlability for the React SPA.
+* **Open Graph & Twitter Cards:** Configured specialized meta attributes (`og:title`, `twitter:card`) inside a reusable `<SEO />` component to ensure optimal link previews when sharing the platform on social media like Facebook, LinkedIn, and Twitter.
+* **Canonical Link Tagging:** Added dynamic `<link rel="canonical">` references to prevent duplicate content indexing issues across routes.
+
 ## 📱 Responsiveness
 * **Mobile-First Grids:** The layout scales gracefully via Tailwind's `grid` and `md:grid-cols-5` utilities, ensuring it looks excellent on both mobile devices and wide desktop displays.
 
