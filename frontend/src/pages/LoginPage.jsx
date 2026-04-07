@@ -46,20 +46,20 @@ export default function LoginPage() {
       description="Log in to book and manage FOSSEE workshops conducted by IIT Bombay."
       keywords="FOSSEE, Workshop Booking, IIT Bombay"
     />
-    <div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#f8fbff_0%,#eef4ff_55%,#fff8f3_100%)] px-3 py-5 lg:px-4">
+    <div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#f8fbff_0%,#eef4ff_55%,#fff8f3_100%)] dark:bg-none dark:bg-surface-950 px-3 py-5 lg:px-4">
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute left-[3%] top-[10%] h-64 w-64 rounded-full bg-orange-300/20 blur-3xl" />
         <div className="absolute bottom-[8%] right-[4%] h-72 w-72 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
 
       <div className="mx-auto grid w-full max-w-[1450px] gap-6 xl:grid-cols-[minmax(320px,0.88fr)_minmax(460px,1.08fr)] xl:items-start">
-        <aside className="relative hidden min-h-[560px] overflow-hidden rounded-[28px] border border-white/25 bg-slate-950 shadow-[0_24px_70px_-24px_rgba(15,23,42,0.42)] xl:flex">
+        <aside className="relative hidden min-h-[560px] overflow-hidden rounded-[28px] border border-white/25 bg-slate-950 shadow-[0_24px_70px_-24px_rgba(15,23,42,0.42)] xl:flex group">
           <img
             src="logos/img1.jpg"
             alt="FOSSEE workshop session"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[15s] group-hover:scale-110 ease-out"
             />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/86 via-slate-900/55 to-blue-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/60 to-primary-950/50" />
 
           <div className="relative flex min-h-[560px] w-full flex-col justify-between p-7 text-white">
             <div className="max-w-[420px]">
@@ -105,15 +105,15 @@ export default function LoginPage() {
                   />
               </div>
 
-              <h1 className="text-3xl font-bold tracking-tight text-surface-900">
+              <h1 className="mt-2 text-4xl font-extrabold tracking-tight bg-gradient-to-br from-surface-900 to-surface-600 bg-clip-text text-transparent dark:from-white dark:to-surface-300">
                 Welcome back
               </h1>
-              <p className="mt-2 text-base text-surface-500">
+              <p className="mt-2 text-base text-surface-500 dark:text-surface-300">
                 Sign in to FOSSEE Workshops Portal
               </p>
             </div>
 
-            <div className="card relative z-10 border border-white/70 bg-white/80 p-8 shadow-[0_22px_55px_-20px_rgba(15,23,42,0.18)] backdrop-blur-xl">
+            <div className="card relative z-10 border border-white/70 dark:border-surface-700 bg-white/80 dark:bg-surface-900/80 p-8 sm:p-10 shadow-[0_22px_55px_-20px_rgba(15,23,42,0.18)] dark:shadow-[0_0_40px_-10px_rgba(0,0,0,0.4)] backdrop-blur-xl">
               {error && (
                 <div className="mb-5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm font-medium text-red-700 animate-fade-in">
                   <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -130,50 +130,67 @@ export default function LoginPage() {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="username" className="mb-1.5 block text-sm font-semibold text-surface-700">
+                  <label htmlFor="username" className="mb-1.5 block text-sm font-semibold text-surface-700 dark:text-surface-200">
                     Username
                   </label>
-                  <input
-                    id="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="input-field relative z-10"
-                    placeholder="Enter your username"
-                    required
-                    autoFocus
-                    />
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-surface-400 group-focus-within:text-primary-500 transition-colors">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+                    <input
+                      id="username"
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      className="input-field relative z-10 pl-10"
+                      placeholder="Enter your username"
+                      required
+                      autoFocus
+                      />
+                  </div>
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="mb-1.5 block text-sm font-semibold text-surface-700">
+                  <label htmlFor="password" className="mb-1.5 block text-sm font-semibold text-surface-700 dark:text-surface-200">
                     Password
                   </label>
-                  <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="input-field relative z-10"
-                    placeholder="Enter your password"
-                    required
-                    />
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-surface-400 group-focus-within:text-primary-500 transition-colors">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    </div>
+                    <input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="input-field relative z-10 pl-10"
+                      placeholder="Enter your password"
+                      required
+                      />
+                  </div>
                 </div>
 
                 <button
                   id="login-submit-button"
                   type="submit"
                   disabled={loading}
-                  className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
+                  className="btn-primary w-full relative overflow-hidden group disabled:cursor-not-allowed disabled:opacity-60 py-3.5 text-[15px]"
                   >
-                  {loading ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                      Signing in...
-                    </div>
-                  ) : (
-                    'Sign in'
-                  )}
+                  <span className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300 ease-out" />
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {loading ? (
+                      <>
+                        <div className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                        Signing in...
+                      </>
+                    ) : (
+                      'Sign in to your account'
+                    )}
+                  </span>
                 </button>
               </form>
 

@@ -9,6 +9,7 @@ The redesign prioritizes clarity, accessibility, and a modern user experience, e
 ---
 ## 🎨 Visual User Interface(UI) Upgrades
 * **Modern Interface:** Transitioned the application to a modern frontend using React and Tailwind CSS.
+* **Global Dark Mode Toggle**: Integrated a custom React Theme Context with a sleek Navbar toggle that fully transitions the application's UI, including glassmorphic cards, typography, and inputs, into a finely-tuned dark aesthetic, while persisting the user's preference in `localStorage`.
 * **Glassmorphic Footer:** Implemented a premium, glassmorphic footer with glowing gradient backgrounds (`backdrop-blur-xl`, `bg-white/5`), dramatically improving the lower page aesthetics.
 * **Refined Typography & Spacing:** Upgraded global padding, margin, and max-widths (`max-w-7xl`, `mx-auto`) to ensure clear and responsive alignment across all device sizes.
 * **Interactive Hover States:** Added smooth `scale` and color shift transitions on buttons, links, and social icons (e.g., `hover:scale-110`, `transition duration-300`).
@@ -52,11 +53,17 @@ We approached this by systematically stepping through the backend first: establi
 **Home After:**  
 ![Login After](./screenshots/after1.png)
 
+**Home After Dark Mode:**  
+![Login After](./screenshots/darkafter.png)
+
 **Workshop Statistics Before:**  
 ![Table Before](./screenshots/before2.png)
 
 **Workshop Statistics After:**  
 ![Table After](./screenshots/after2.png)
+
+**Workshop Statistics After Dark Mode:**  
+![Table After](./screenshots/darkafter2.png)
 
 **Responsiveness Demo:**  
 ![Responsive 1](./screenshots/res1.png)

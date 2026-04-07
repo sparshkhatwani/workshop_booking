@@ -122,8 +122,8 @@ export default function StatisticsPage() {
     />
     <div className="relative z-10 space-y-6 animate-slide-up pointer-events-auto">
       <div>
-        <h1 className="text-2xl font-bold text-surface-900 tracking-tight">Workshop Statistics</h1>
-        <p className="mt-1 text-sm text-surface-500">Browse and analyze workshop data across India</p>
+        <h1 className="text-2xl font-bold text-surface-900 dark:text-white tracking-tight">Workshop Statistics</h1>
+        <p className="mt-1 text-sm text-surface-500 dark:text-surface-300">Browse and analyze workshop data across India</p>
       </div>
 
       <div className="relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-4 pointer-events-auto">
@@ -355,27 +355,27 @@ export default function StatisticsPage() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-surface-100 bg-surface-50/50">
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Sr No.</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Coordinator</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Institute</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Instructor</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Workshop</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500">Date</th>
+                    <tr className="border-b border-surface-100 dark:border-surface-700 bg-surface-50/50 dark:bg-surface-800/50">
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Sr No.</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Coordinator</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Institute</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Instructor</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Workshop</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Date</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-surface-100">
                     {data?.workshops?.length > 0 ? (
                       data.workshops.map((w, i) => (
-                        <tr key={w.id} className="transition-colors hover:bg-surface-50/50">
-                          <td className="px-6 py-4 text-sm text-surface-500">
+                        <tr key={w.id} className="transition-colors hover:bg-surface-50/50 dark:hover:bg-surface-800/50 border-b border-surface-100 dark:border-surface-800/50">
+                          <td className="px-6 py-4 text-sm text-surface-500 dark:text-surface-300">
                             {(data.page - 1) * data.per_page + i + 1}
                           </td>
-                          <td className="px-6 py-4 text-sm font-medium text-surface-900">{w.coordinator_name}</td>
-                          <td className="px-6 py-4 text-sm text-surface-600">{w.coordinator_institute}</td>
-                          <td className="px-6 py-4 text-sm text-surface-600">{w.instructor_name || '—'}</td>
-                          <td className="px-6 py-4 text-sm text-surface-600">{w.workshop_type_name}</td>
-                          <td className="px-6 py-4 text-sm text-surface-600">
+                          <td className="px-6 py-4 text-sm font-medium text-surface-900 dark:text-white">{w.coordinator_name}</td>
+                          <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-300">{w.coordinator_institute}</td>
+                          <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-300">{w.instructor_name || '—'}</td>
+                          <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-300">{w.workshop_type_name}</td>
+                          <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-300">
                             {new Date(w.date).toLocaleDateString('en-IN', {
                               day: 'numeric',
                               month: 'short',
@@ -386,7 +386,7 @@ export default function StatisticsPage() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={6} className="px-6 py-12 text-center text-sm text-surface-400">
+                        <td colSpan={6} className="px-6 py-12 text-center text-sm text-surface-400 dark:text-surface-300">
                           No workshops found for the selected criteria
                         </td>
                       </tr>
