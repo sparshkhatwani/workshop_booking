@@ -4,6 +4,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import DashboardCoordinator from './pages/DashboardCoordinator';
 import DashboardInstructor from './pages/DashboardInstructor';
 import StatisticsPage from './pages/StatisticsPage';
@@ -34,6 +36,8 @@ function AppRoutes() {
       <main className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route
             path="/dashboard"

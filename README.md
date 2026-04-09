@@ -65,6 +65,20 @@ We approached this by systematically stepping through the backend first: establi
 **Workshop Statistics After Dark Mode:**  
 ![Table After](./screenshots/darkafter2.png)
 
+**Signup Before:**  
+![Table Before](./screenshots/beforesg.png)
+
+**Signup After:**  
+![Table Before](./screenshots/sgafter1.png)
+![Table Before](./screenshots/sgafter2.png)
+
+**Forgot Password Before:**  
+![Table Before](./screenshots/fpbefore.png)
+
+**Forgot Password After:**  
+![Table Before](./screenshots/fpafter1.png)
+![Table Before](./screenshots/fpafter2.png)
+
 **Responsiveness Demo:**  
 ![Responsive 1](./screenshots/res1.png)
 

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { fetchMe, fetchCsrf, login as apiLogin, logout as apiLogout } from '../api/client';
+import { fetchMe, fetchCsrf, login as apiLogin, logout as apiLogout, register as apiRegister } from '../api/client';
 
 const AuthContext = createContext(null);
 
@@ -31,11 +31,19 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
+  const register = async (userData) => {
+    await fetchCsrf();
+    const data = await apiRegister(userData);
+    setUser(data.user);
+    return data;
+  };
+
   const value = {
     user,
     loading,
     login,
     logout,
+    register,
     isAuthenticated: !!user,
     isInstructor: user?.is_instructor ?? false,
   };

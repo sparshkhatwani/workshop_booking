@@ -50,6 +50,11 @@ export async function register(data) {
   return res.data;
 }
 
+export async function resetPassword(email) {
+  const res = await api.post('/auth/password-reset/', { email });
+  return res.data;
+}
+
 // ─── Workshops ───────────────────
 
 export async function fetchWorkshops() {

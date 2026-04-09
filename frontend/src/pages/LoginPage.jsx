@@ -202,15 +202,18 @@ export default function LoginPage() {
                     >
                     New around here? Sign up
                   </Link>
-                  <span className="text-surface-400">
-                    Forgot password? Contact admin
-                  </span>
+                  <Link
+                    to="/forgot-password"
+                    className="font-semibold text-surface-500 transition-colors hover:text-surface-700 dark:text-surface-400 dark:hover:text-surface-300"
+                    >
+                    Forgot password?
+                  </Link>
                 </div>
               </div>
             </div>
 
             <p className="mt-4 text-center text-xs text-surface-400">
-              Developed by FOSSEE group, IIT Bombay
+              Developed by Sparsh Khatwani
             </p>
           </div>
         </main>
