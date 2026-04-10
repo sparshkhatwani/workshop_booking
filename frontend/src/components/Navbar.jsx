@@ -26,21 +26,40 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-3 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg shadow-primary-500/30">
-              <span className="text-white text-sm font-bold">F</span>
+            <div className="flex items-center gap-2">
+              {/* <img src="/logos/iitblogo.png" alt="IITB" className="h-10 w-auto brightness-0 invert" /> */}
+              {/* <div className="h-8 w-[1px] bg-white/20 mx-1"></div> */}
+              <img src="/logos/fosseelogo.png" alt="FOSSEE" className="h-10 w-auto" />
             </div>
-            <span className="text-white font-bold text-lg tracking-tight group-hover:text-primary-300 transition-colors">
-              FOSSEE Workshops
-            </span>
+            <div className="hidden lg:flex flex-col ml-1">
+              <span className="text-white font-bold text-lg tracking-tight group-hover:text-primary-300 transition-colors leading-tight">
+                FOSSEE
+              </span>
+              <span className="text-white/60 text-[10px] uppercase tracking-[0.2em] font-medium leading-tight">
+                Workshops
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            <Link to="/" className={navLinkClass('/')}>Home</Link>
+            <Link to="/" className={navLinkClass('/')}>
+              <div className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Home
+              </div>
+            </Link>
             <Link to="/statistics" className={navLinkClass('/statistics')}>
-              Workshop Statistics
+              <div className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Statistics
+              </div>
             </Link>
 
             {isAuthenticated && (
@@ -49,15 +68,30 @@ export default function Navbar() {
                   to="/dashboard"
                   className={navLinkClass('/dashboard')}
                 >
-                  {isInstructor ? 'Dashboard' : 'My Workshops'}
+                  <div className="flex items-center gap-1.5">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {isInstructor ? 'Dashboard' : 'My Workshops'}
+                  </div>
                 </Link>
                 {!isInstructor && (
                   <Link to="/propose" className={navLinkClass('/propose')}>
-                    Propose Workshop
+                    <div className="flex items-center gap-1.5">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Propose
+                    </div>
                   </Link>
                 )}
                 <Link to="/workshop-types" className={navLinkClass('/workshop-types')}>
-                  Workshop Types
+                  <div className="flex items-center gap-1.5">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                    </svg>
+                    Programs
+                  </div>
                 </Link>
               </>
             )}
@@ -170,24 +204,56 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="md:hidden py-4 border-t border-white/10 animate-slide-down">
             <div className="flex flex-col gap-1">
-              <Link to="/" onClick={() => setMobileOpen(false)} className={navLinkClass('/')}>Home</Link>
-              <Link to="/statistics" onClick={() => setMobileOpen(false)} className={navLinkClass('/statistics')}>
+              <Link to="/" onClick={() => setMobileOpen(false)} className={navLinkClass('/') + ' flex items-center gap-2'}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Home
+              </Link>
+              <Link to="/statistics" onClick={() => setMobileOpen(false)} className={navLinkClass('/statistics') + ' flex items-center gap-2'}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
                 Workshop Statistics
               </Link>
               {isAuthenticated && (
                 <>
-                  <Link to="/dashboard" onClick={() => setMobileOpen(false)} className={navLinkClass('/dashboard')}>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setMobileOpen(false)}
+                    className={navLinkClass('/dashboard') + ' flex items-center gap-2'}
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
                     {isInstructor ? 'Dashboard' : 'My Workshops'}
                   </Link>
                   {!isInstructor && (
-                    <Link to="/propose" onClick={() => setMobileOpen(false)} className={navLinkClass('/propose')}>
+                    <Link
+                      to="/propose"
+                      onClick={() => setMobileOpen(false)}
+                      className={navLinkClass('/propose') + ' flex items-center gap-2'}
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                       Propose Workshop
                     </Link>
                   )}
-                  <Link to="/workshop-types" onClick={() => setMobileOpen(false)} className={navLinkClass('/workshop-types')}>
+                  <Link
+                    to="/workshop-types"
+                    onClick={() => setMobileOpen(false)}
+                    className={navLinkClass('/workshop-types') + ' flex items-center gap-2'}
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                    </svg>
                     Workshop Types
                   </Link>
-                  <Link to="/profile" onClick={() => setMobileOpen(false)} className={navLinkClass('/profile')}>
+                  <Link to="/profile" onClick={() => setMobileOpen(false)} className={navLinkClass('/profile') + ' flex items-center gap-2'}>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
                     Profile
                   </Link>
                   <button
@@ -204,8 +270,18 @@ export default function Navbar() {
               )}
               {!isAuthenticated && (
                 <>
-                  <Link to="/login" onClick={() => setMobileOpen(false)} className={navLinkClass('/login')}>Sign in</Link>
-                  <Link to="/register" onClick={() => setMobileOpen(false)} className={navLinkClass('/register')}>Sign up</Link>
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className={navLinkClass('/login') + ' flex items-center gap-2'}>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign in
+                  </Link>
+                  <Link to="/register" onClick={() => setMobileOpen(false)} className={navLinkClass('/register') + ' flex items-center gap-2'}>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Sign up
+                  </Link>
                 </>
               )}
               <button
