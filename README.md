@@ -56,20 +56,58 @@ The redesign prioritizes:
 
 ## ✨ Visual Showcase
 
-### Before vs After Comparison
+**Home Before:**  
+<img src="./screenshots/before1.png" width="600" alt="Home Before" />
 
-| Feature | State | Desktop View | Mobile Experience |
-|---------|-------|--------------|-------------------|
-| **Landing Page** | **After** | Modern Hero + Parallax bg | Responsive stacked grid |
-| **Login** | **After** | Glassmorphic Card + Validation | Full-width mobile inputs |
-| **Statistics** | **After** | Recharts (Live Bar Charts) | Collapsible filter sidebar |
-| **Registration** | **After** | Two-column responsive grid | Step-through mobile layout |
+**Home After (with typewriter effect):**  
+<img src="./screenshots/newafter.png" width="600" alt="Home After" />
 
-### Screenshot Gallery
+**Sign In After Dark Mode:**  
+<img src="./screenshots/darkafter.png" width="600" alt="Sign In Dark Mode" />
 
-| Home (Dark Mode) | Workshop Statistics | Signup Flow |
-|------------------|---------------------|-------------|
-| ![Home After](./screenshots/darkafter.png) | ![Stats After](./screenshots/darkafter2.png) | ![Signup After](./screenshots/sgafter2.png) |
+<br/>
+
+**Workshop Statistics Before:**  
+<img src="./screenshots/before2.png" width="600" alt="Stats Before" />
+
+**Workshop Statistics After:**  
+<img src="./screenshots/newafter1.png" width="600" alt="Stats After 1" />
+<img src="./screenshots/newafter2.png" width="600" alt="Stats After 2" />
+
+**My Workshop After Dark Mode:**  
+<img src="./screenshots/newafter3.png" width="600" alt="My Workshop Dark Mode" />
+
+**Propose Workshop After:**  
+<img src="./screenshots/newafter4.png" width="600" alt="Propose Workshop After" />
+
+**Programs After Dark Mode:**  
+<img src="./screenshots/newafter5.png" width="600" alt="Programs Dark Mode" />
+
+**Profile After Dark Mode:**  
+<img src="./screenshots/newafter6.png" width="600" alt="Profile Dark Mode" />
+
+<br/>
+
+**Signup Before:**  
+<img src="./screenshots/beforesg.png" width="600" alt="Signup Before" />
+
+**Signup After:**  
+<img src="./screenshots/sgafter1.png" width="600" alt="Signup After" />
+
+<br/>
+
+**Forgot Password Before:**  
+<img src="./screenshots/fpbefore.png" width="600" alt="Forgot Password Before" />
+
+**Forgot Password After:**  
+<img src="./screenshots/fpafter1.png" width="600" alt="Forgot Password After" />
+
+<br/>
+
+**Responsiveness Demo:**  
+<img src="./screenshots/newresp.png" width="600" alt="Responsive 1" />
+<img src="./screenshots/newresp1.png" width="600" alt="Responsive 2" />
+<img src="./screenshots/newresp2.png" width="600" alt="Responsive 3" />
 
 ---
 
