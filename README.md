@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./frontend/logos/fosseelogo.png" alt="FOSSEE Logo" width="250" />
+  <img src="./frontend/public/logos/fosseelogo.png" alt="FOSSEE Logo" width="250" />
   <h1>🌟 UI/UX Enhancement: Workshop Booking Platform</h1>
   <p><strong>A modern, premium React-based redesign of the FOSSEE Workshop Booking portal.</strong></p>
 
@@ -16,9 +16,9 @@
 ## 📖 Table of Contents
 
 - [📌 Project Overview](#-project-overview)
+- [🎨 UI/UX & SEO Upgrades](#-uiux--seo-upgrades)
 - [✨ Visual Showcase](#-visual-showcase)
 - [🛠️ Technical & Implementation Details](#️-technical--implementation-details)
-- [🎨 UI/UX & SEO Upgrades](#-uiux--seo-upgrades)
 - [📂 Project Structure](#-project-structure)
 - [🚀 Setup & Installation](#-setup--installation)
 - [👨‍🎓 Student Details](#-student-details)
@@ -33,6 +33,24 @@ The redesign prioritizes:
 - **Visual Excellence**: A premium, Apple-inspired aesthetic with glassmorphism and smooth animations.
 - **Role-Based Experience**: Tailored dashboards for both Coordinators and Instructors.
 - **Data Accessibility**: Clear, high-contrast Dark Mode for complex data tables and statistics.
+
+---
+
+## 🎨 UI/UX & SEO Upgrades
+
+### UI Upgrades
+- 🌗 **Global Dark Mode Engine**: Integrated a custom React Theme Context with a sleek toggle, persisting user preferences in `localStorage` for a seamless cross-session experience.
+- 💎 **Glassmorphism Design**: Implemented premium navigation and card components utilizing `backdrop-blur-xl` and `bg-white/5` for a modern, depth-focused look.
+- ✍️ **Dynamic Typewriter Hero**: Added a custom `useTypewriter` hook to the landing page, creating an engaging, living header that highlights key learning domains.
+- 🏛️ **Institutional Branding**: Professional integration of **FOSSEE** and **IIT Bombay** logos into the navigation system, reinforcing academic credibility.
+- 📏 **Refined Design System**: Established a consistent 8px grid system with fluid typography (`clamp`) and custom Tailwind color tokens (Surface/Primary).
+
+### UX & SEO Upgrades
+- 🚀 **SPA Core**: Utilized `react-router-dom` v6 for instant, flicker-free navigations, dramatically reducing bounce rates.
+- 🔔 **Intelligent UI Feedback**: Integrated `react-hot-toast` for elegantly timed, non-blocking user notifications on all critical actions.
+- 📊 **Quick-Stats Dashboard**: Added a high-impact statistics bar on the home page for immediate social proof and platform scale visualization.
+- 🔍 **Search Engine Optimization**: Implemented dynamic meta-tag injection for every route (titles, descriptions, canonical links) to ensure maximum crawlability.
+- ⏳ **Advanced Loading Logic**: Center-aligned spinner logic and skeleton-ready states ensure a smooth "Perceived Performance" even on slower connections.
 
 ---
 
@@ -58,32 +76,16 @@ The redesign prioritizes:
 ## 🛠️ Technical & Implementation Details
 
 ### 🤔 What design principles guided your improvements?
-The primary principle was **Separation of Concerns**, cleanly decoupling the backend data layer (Django) from the presentation layer (React). On the UI side, the migration was guided by **Modern Minimalism** and **Component Reusability**. By utilizing Tailwind CSS, we established a strict, consistent design system (colors, typography, spacing) that ensures a cohesive look across the entire application while remaining easily maintainable.
+The primary principle was **Separation of Concerns**, cleanly decoupling the backend data layer (Django) from the presentation layer (React). On the UI side, the migration was guided by **Modern Minimalism** and **Component Reusability**.The redesign was rooted in the **Atomic Design Methodology**, where components were built from the ground up for maximum reusability. We emphasized **Visual Hierarchy** and **Information Density**, ensuring that complex data dashboards remain legible. By strictly adhering to a **Design Token System** via Tailwind CSS, we decoupled the UI logic from raw CSS, ensuring that the entire platform's aesthetic (from spacing to color contrast) can be updated from a single configuration file.
 
 ### 📲 How did you ensure responsiveness across devices?
-We implemented a **Mobile-First Approach**. Using Tailwind CSS's breakpoint utilities (like `md:`, `lg:`), the base design defaults to mobile-friendly layouts. The layout scales gracefully via Tailwind's `grid` and `flex` utilities, ensuring it looks excellent on both mobile devices and wide desktop displays.
+We employed a **Fluid Design Strategy** combined with Tailwind's mobile-first breakpoint system. Instead of fixed widths, we used **relative sizing (REM/%)** and **CSS Grid** to ensure layouts "flow" naturally. For complex elements like the Statistics tables, we implemented **horizontal scrolling sub-containers** on mobile, while the Sidebar filters switch to a **collapsible drawer** to preserve vertical screen real-estate.
 
 ### ⚖️ What trade-offs did you make between the design and performance?
-We opted for **Client-Side Rendering (CSR)** using React and Vite. The trade-off is a slightly larger initial JavaScript bundle payload on the first page load compared to traditional server-rendered Django templates. However, this is offset by **instant navigations** (SPA) and highly dynamic design interactions, resulting in a significantly better overall User Experience (UX).
+The primary trade-off was between **Initial Load Time and Run-time Fluidity**. By choosing a React-based SPA (Client-Side Rendering), we accepted a larger initial JS bundle compared to traditional Django templates. However, we mitigated this using **Vite's optimized tree-shaking** and asset compression. The result is a slightly longer "first-paint" but **instant transitions thereafter**, which is significantly more beneficial for a complex, data-heavy dashboard platform like this.
 
 ### 🧗 What was the most challenging part of the task and how did you approach it?
-The most challenging part was **stateless authentication migration**. Decentralizing the session-based Django authentication into a JWT-like flow with CSRF protection required meticulous API design. We approached this by building a centralized `AuthProvider` in React that synchronizes with Django’s Session Authentication while providing global state to the UI.
-
----
-
-## 🎨 UI/UX & SEO Upgrades
-
-### UI Upgrades
-- 🌗 **Global Dark Mode**: Integrated a custom React Theme Context with a sleek toggle, persisting preferences in `localStorage`.
-- 💎 **Glassmorphism**: Premium footer and card components using `backdrop-blur-xl` and `bg-white/5`.
-- 📏 **Refined Spacing**: Modernized 8px grid system with `max-w-7xl` containers and fluid typography.
-- 🖱️ **Interactive States**: Smooth `hover:scale-105` transitions and micro-animations on all buttons.
-
-### UX & SEO Upgrades
-- 🚀 **SPA Navigation**: Instant transitions using `react-router-dom` v6.
-- 🔔 **Real-time Feedback**: Beautiful notifications via `react-hot-toast`.
-- 🔍 **Dynamic SEO**: Integrated SEO components for route-specific meta tags (`og:title`, `canonical links`).
-- ⏳ **Skeleton Loading**: Center-aligned spinner logic for smooth data fetching.
+The most significant challenge was the **Architecture Decoupling**. Migrating from Django's session-based templates to a decoupled REST environment required a robust **Auth Context Management** system. We solved this by building a custom React Context provider that handles persistent authentication states, CSRF security handshakes, and role-based route guarding. This ensures that the frontend remains "stateless" while perfectly synchronized with the Backend's security layers.
 
 ---
 
@@ -125,7 +127,7 @@ pip install -r requirements.txt
 # 3. Apply database migrations
 python manage.py migrate
 
-# 4. Generate Sample Data (Optional)
+# 4. Generate Sample Data (Highly Recommended)
 python seed_data.py
 
 # 5. Start the backend development server
@@ -144,11 +146,12 @@ npm install
 npm run dev
 ```
 
-> **Note**: The frontend runs at `http://localhost:5173` and the backend at `http://localhost:8000`.
+> ℹ️ Your React frontend will typically run on `http://localhost:5173` and communicate with the Django backend running on `http://localhost:8000`.
+
 ---
 __NOTE__: Check `docs/Getting_Started.md` for more historical info on the backend architecture.
 
----
+<br/>
 
 ## 👨‍🎓 Student Details
 
