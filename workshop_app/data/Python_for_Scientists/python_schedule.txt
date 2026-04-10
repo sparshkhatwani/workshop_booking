@@ -1,0 +1,4 @@
+Workshop Schedule:
+Day 1: Introduction to Python
+Day 2: Advanced Data Types
+Day 3: Django Basics

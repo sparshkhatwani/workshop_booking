@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -9,6 +9,7 @@ export default function Navbar() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
 
@@ -117,11 +118,12 @@ export default function Navbar() {
                     <hr className="my-1 border-surface-100" />
                     <button
                       id="navbar-logout-button"
-                      onClick={() => {
+                      onClick={async () => {
                         setProfileOpen(false);
-                        logout();
+                        await logout();
+                        navigate('/login');
                       }}
-                      className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                      className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -189,8 +191,12 @@ export default function Navbar() {
                     Profile
                   </Link>
                   <button
-                    onClick={() => { setMobileOpen(false); logout(); }}
-                    className="text-left px-3 py-2 rounded-lg text-sm font-medium text-red-400 hover:bg-red-500/10 transition-all"
+                    onClick={async () => { 
+                      setMobileOpen(false); 
+                      await logout(); 
+                      navigate('/login');
+                    }}
+                    className="text-left px-3 py-2 rounded-lg text-sm text-red-400 dark:text-red-400 hover:bg-red-500/10 transition-all font-bold"
                   >
                     Logout
                   </button>

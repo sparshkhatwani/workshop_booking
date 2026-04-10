@@ -62,8 +62,8 @@ export default function DashboardCoordinator() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-surface-900 tracking-tight">My Workshops</h1>
-          <p className="text-surface-500 text-sm mt-1">Track the status of your workshop proposals</p>
+          <h1 className="text-2xl font-bold text-surface-900 dark:text-white tracking-tight">My Workshops</h1>
+          <p className="text-surface-500 dark:text-surface-400 text-sm mt-1">Track the status of your workshop proposals</p>
         </div>
         <Link to="/propose" className="btn-primary">
           <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,8 +76,8 @@ export default function DashboardCoordinator() {
       {/* Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="card p-5">
-          <p className="text-xs font-semibold text-surface-400 uppercase tracking-wider">Total</p>
-          <p className="text-3xl font-bold text-surface-900 mt-1">{workshops.length}</p>
+          <p className="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">Total</p>
+          <p className="text-3xl font-bold text-surface-900 dark:text-white mt-1">{workshops.length}</p>
         </div>
         <div className="card p-5">
           <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Accepted</p>
@@ -92,29 +92,29 @@ export default function DashboardCoordinator() {
       {/* Accepted Table */}
       {acceptedWorkshops.length > 0 && (
         <div className="card overflow-hidden">
-          <div className="px-6 py-4 border-b border-surface-100">
-            <h2 className="text-lg font-bold text-surface-900">Workshops Accepted</h2>
+          <div className="px-6 py-4 border-b border-surface-100 dark:border-surface-800">
+            <h2 className="text-lg font-bold text-surface-900 dark:text-white">Workshops Accepted</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-surface-100 bg-surface-50/50">
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Workshop</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Instructor</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Date</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Status</th>
+                <tr className="border-b border-surface-100 dark:border-surface-800 bg-surface-50/50 dark:bg-surface-900/50">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Workshop</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Instructor</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-100">
+              <tbody className="divide-y divide-surface-100 dark:divide-surface-800">
                 {acceptedWorkshops.map((w) => (
-                  <tr key={w.id} className="hover:bg-surface-50/50 transition-colors">
+                  <tr key={w.id} className="hover:bg-surface-50/50 dark:hover:bg-surface-900/50 transition-colors">
                     <td className="px-6 py-4">
-                      <Link to={`/workshops/${w.id}`} className="text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                      <Link to={`/workshops/${w.id}`} className="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 transition-colors">
                         {w.workshop_type_name}
                       </Link>
                     </td>
-                    <td className="px-6 py-4 text-sm text-surface-600">{w.instructor_name || '—'}</td>
-                    <td className="px-6 py-4 text-sm text-surface-600">{new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">{w.instructor_name || '—'}</td>
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">{new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                     <td className="px-6 py-4"><span className="badge-success">{w.status_display}</span></td>
                   </tr>
                 ))}
@@ -127,27 +127,27 @@ export default function DashboardCoordinator() {
       {/* Pending Table */}
       {pendingWorkshops.length > 0 && (
         <div className="card overflow-hidden">
-          <div className="px-6 py-4 border-b border-surface-100">
-            <h2 className="text-lg font-bold text-surface-900">Workshops Proposed By Me</h2>
+          <div className="px-6 py-4 border-b border-surface-100 dark:border-surface-800">
+            <h2 className="text-lg font-bold text-surface-900 dark:text-white">Workshops Proposed By Me</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-surface-100 bg-surface-50/50">
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Workshop</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Date</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Status</th>
+                <tr className="border-b border-surface-100 dark:border-surface-800 bg-surface-50/50 dark:bg-surface-900/50">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Workshop</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-100">
+              <tbody className="divide-y divide-surface-100 dark:divide-surface-800">
                 {pendingWorkshops.map((w) => (
-                  <tr key={w.id} className="hover:bg-surface-50/50 transition-colors">
+                  <tr key={w.id} className="hover:bg-surface-50/50 dark:hover:bg-surface-900/50 transition-colors">
                     <td className="px-6 py-4">
-                      <Link to={`/workshops/${w.id}`} className="text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                      <Link to={`/workshops/${w.id}`} className="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 transition-colors">
                         {w.workshop_type_name}
                       </Link>
                     </td>
-                    <td className="px-6 py-4 text-sm text-surface-600">{new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">{new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                     <td className="px-6 py-4"><span className="badge-warning">{w.status_display}</span></td>
                   </tr>
                 ))}

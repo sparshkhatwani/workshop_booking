@@ -131,7 +131,7 @@ export default function StatisticsPage() {
           <form onSubmit={handleFilter} className="pointer-events-auto">
             <div className="card space-y-4 p-5">
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-surface-900">Filters</h3>
+                <h3 className="font-bold text-surface-900 dark:text-white">Filters</h3>
                 <button
                   type="button"
                   onClick={handleClear}
@@ -145,7 +145,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-xs font-semibold text-surface-500">From Date</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500 dark:text-surface-400">From Date</label>
                 <input
                   type="date"
                   value={filters.from_date}
@@ -155,7 +155,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-xs font-semibold text-surface-500">To Date</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500 dark:text-surface-400">To Date</label>
                 <input
                   type="date"
                   value={filters.to_date}
@@ -165,7 +165,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-xs font-semibold text-surface-500">Workshop</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500 dark:text-surface-400">Workshop</label>
                 <select
                   value={filters.workshop_type}
                   onChange={(e) => setFilters({ ...filters, workshop_type: e.target.value })}
@@ -181,7 +181,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-xs font-semibold text-surface-500">State</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500 dark:text-surface-400">State</label>
                 <select
                   value={filters.state}
                   onChange={(e) => setFilters({ ...filters, state: e.target.value })}
@@ -196,7 +196,7 @@ export default function StatisticsPage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-xs font-semibold text-surface-500">Sort by</label>
+                <label className="mb-1 block text-xs font-semibold text-surface-500 dark:text-surface-400">Sort by</label>
                 <select
                   value={filters.sort}
                   onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
@@ -238,7 +238,7 @@ export default function StatisticsPage() {
               className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                 chartMode === 'states'
                 ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
+                : 'border border-surface-200 dark:border-surface-800 bg-white dark:bg-surface-900 text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-800'
               }`}
               >
               <span className="flex items-center gap-1.5">
@@ -255,7 +255,7 @@ export default function StatisticsPage() {
               className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                 chartMode === 'types'
                 ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                : 'border border-surface-200 bg-white text-surface-700 hover:bg-surface-50'
+                : 'border border-surface-200 dark:border-surface-800 bg-white dark:bg-surface-900 text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-800'
               }`}
               >
               <span className="flex items-center gap-1.5">
@@ -269,7 +269,7 @@ export default function StatisticsPage() {
 
           {chartMode && (
             <div className="card animate-slide-up p-6">
-              <h3 className="mb-4 text-lg font-bold text-surface-900">
+              <h3 className="mb-4 text-lg font-bold text-surface-900 dark:text-white">
                 {chartMode === 'states' ? 'State-wise Workshops' : 'Workshop Type Distribution'}
               </h3>
               {getChartData().length > 0 ? (
@@ -314,8 +314,8 @@ export default function StatisticsPage() {
             </div>
           ) : (
             <div className="card overflow-hidden">
-              <div className="flex items-center justify-between border-b border-surface-100 px-6 py-4">
-                <h3 className="font-bold text-surface-900">
+              <div className="flex items-center justify-between border-b border-surface-100 dark:border-surface-800 px-6 py-4">
+                <h3 className="font-bold text-surface-900 dark:text-white">
                   Workshops
                   {data?.total > 0 && (
                     <span className="ml-2 text-xs font-normal text-surface-400">
@@ -355,20 +355,20 @@ export default function StatisticsPage() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-surface-100 dark:border-surface-700 bg-surface-50/50 dark:bg-surface-800/50">
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Sr No.</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Coordinator</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Institute</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Instructor</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Workshop</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-200">Date</th>
+                    <tr className="border-b border-surface-100 dark:border-surface-800 bg-surface-50/50 dark:bg-surface-900/50">
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400">Sr No.</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400">Coordinator</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400">Institute</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400">Instructor</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400">Workshop</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400">Date</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-surface-100">
+                  <tbody className="divide-y divide-surface-100 dark:divide-surface-800">
                     {data?.workshops?.length > 0 ? (
                       data.workshops.map((w, i) => (
-                        <tr key={w.id} className="transition-colors hover:bg-surface-50/50 dark:hover:bg-surface-800/50 border-b border-surface-100 dark:border-surface-800/50">
-                          <td className="px-6 py-4 text-sm text-surface-500 dark:text-surface-300">
+                        <tr key={w.id} className="transition-colors hover:bg-surface-50/50 dark:hover:bg-surface-900/50 border-b border-surface-100 dark:border-surface-800">
+                          <td className="px-6 py-4 text-sm text-surface-500 dark:text-surface-400">
                             {(data.page - 1) * data.per_page + i + 1}
                           </td>
                           <td className="px-6 py-4 text-sm font-medium text-surface-900 dark:text-white">{w.coordinator_name}</td>

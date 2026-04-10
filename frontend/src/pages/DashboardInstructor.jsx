@@ -99,15 +99,15 @@ export default function DashboardInstructor() {
     <div className="space-y-8 animate-slide-up">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-surface-900 tracking-tight">Instructor Dashboard</h1>
-        <p className="text-surface-500 text-sm mt-1">Manage and accept workshop proposals</p>
+        <h1 className="text-2xl font-bold text-surface-900 dark:text-white tracking-tight">Instructor Dashboard</h1>
+        <p className="text-surface-500 dark:text-surface-400 text-sm mt-1">Manage and accept workshop proposals</p>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="card p-5">
-          <p className="text-xs font-semibold text-surface-400 uppercase tracking-wider">Total</p>
-          <p className="text-3xl font-bold text-surface-900 mt-1">{workshops.length}</p>
+          <p className="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">Total</p>
+          <p className="text-3xl font-bold text-surface-900 dark:text-white mt-1">{workshops.length}</p>
         </div>
         <div className="card p-5">
           <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Accepted</p>
@@ -122,32 +122,32 @@ export default function DashboardInstructor() {
       {/* Accepted */}
       {acceptedWorkshops.length > 0 && (
         <div className="card overflow-hidden">
-          <div className="px-6 py-4 border-b border-surface-100">
-            <h2 className="text-lg font-bold text-surface-900">Workshops Accepted</h2>
+          <div className="px-6 py-4 border-b border-surface-100 dark:border-surface-800">
+            <h2 className="text-lg font-bold text-surface-900 dark:text-white">Workshops Accepted</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-surface-100 bg-surface-50/50">
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Coordinator</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Institute</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Workshop</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Date</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Actions</th>
+                <tr className="border-b border-surface-100 dark:border-surface-800 bg-surface-50/50 dark:bg-surface-900/50">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Coordinator</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Institute</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Workshop</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-100">
+              <tbody className="divide-y divide-surface-100 dark:divide-surface-800">
                 {acceptedWorkshops.map((w) => (
                   <tr key={w.id} className="hover:bg-surface-50/50 transition-colors">
                     <td className="px-6 py-4">
-                      <Link to={`/profile/${w.coordinator_id}`} className="text-sm font-semibold text-primary-600 hover:text-primary-700">
+                      <Link to={`/profile/${w.coordinator_id}`} className="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700">
                         {w.coordinator_name}
                       </Link>
                     </td>
-                    <td className="px-6 py-4 text-sm text-surface-600">{w.coordinator_institute}</td>
-                    <td className="px-6 py-4 text-sm font-medium text-surface-900">{w.workshop_type_name}</td>
-                    <td className="px-6 py-4 text-sm text-surface-600">
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">{w.coordinator_institute}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-surface-900 dark:text-white">{w.workshop_type_name}</td>
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">
                       {new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </td>
                     <td className="px-6 py-4"><span className="badge-success">{w.status_display}</span></td>
@@ -175,32 +175,32 @@ export default function DashboardInstructor() {
       {/* Pending Proposals */}
       {pendingWorkshops.length > 0 && (
         <div className="card overflow-hidden">
-          <div className="px-6 py-4 border-b border-surface-100">
-            <h2 className="text-lg font-bold text-surface-900">Workshop Proposals From Coordinators</h2>
+          <div className="px-6 py-4 border-b border-surface-100 dark:border-surface-800">
+            <h2 className="text-lg font-bold text-surface-900 dark:text-white">Workshop Proposals From Coordinators</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-surface-100 bg-surface-50/50">
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Coordinator</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Institute</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Workshop</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Date</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 uppercase tracking-wider">Action</th>
+                <tr className="border-b border-surface-100 dark:border-surface-800 bg-surface-50/50 dark:bg-surface-900/50">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Coordinator</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Institute</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Workshop</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-100">
+              <tbody className="divide-y divide-surface-100 dark:divide-surface-800">
                 {pendingWorkshops.map((w) => (
                   <tr key={w.id} className="hover:bg-surface-50/50 transition-colors">
                     <td className="px-6 py-4">
-                      <Link to={`/profile/${w.coordinator_id}`} className="text-sm font-semibold text-primary-600 hover:text-primary-700">
+                      <Link to={`/profile/${w.coordinator_id}`} className="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700">
                         {w.coordinator_name}
                       </Link>
                     </td>
-                    <td className="px-6 py-4 text-sm text-surface-600">{w.coordinator_institute}</td>
-                    <td className="px-6 py-4 text-sm font-medium text-surface-900">{w.workshop_type_name}</td>
-                    <td className="px-6 py-4 text-sm text-surface-600">
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">{w.coordinator_institute}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-surface-900 dark:text-white">{w.workshop_type_name}</td>
+                    <td className="px-6 py-4 text-sm text-surface-600 dark:text-surface-400">
                       {new Date(w.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </td>
                     <td className="px-6 py-4"><span className="badge-warning">{w.status_display}</span></td>
