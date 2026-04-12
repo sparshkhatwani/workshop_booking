@@ -53,10 +53,12 @@ export default function LoginPage() {
       </div>
 
       <div className="mx-auto grid w-full max-w-[1450px] gap-6 xl:grid-cols-[minmax(320px,0.88fr)_minmax(460px,1.08fr)] xl:items-start">
-        <aside className="relative hidden min-h-[560px] overflow-hidden rounded-[28px] border border-white/25 bg-slate-950 shadow-[0_24px_70px_-24px_rgba(15,23,42,0.42)] xl:flex group">
+        <aside className="relative hidden w-full min-h-[560px] overflow-hidden rounded-[28px] border border-white/25 bg-slate-950 shadow-[0_24px_70px_-24px_rgba(15,23,42,0.42)] xl:flex group">
           <img
-            src="logos/img1.jpg"
+            src="logos/img1.webp"
             alt="FOSSEE workshop session"
+            width="800"
+            height="560"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[15s] group-hover:scale-110 ease-out"
             />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/60 to-primary-950/50" />
@@ -94,13 +96,17 @@ export default function LoginPage() {
             <div className="mb-7 text-center">
               <div className="mb-4 flex items-center justify-center gap-4">
                 <img
-                  src="/logos/fosseelogo.png"
+                  src="/logos/fosseelogo.webp"
                   alt="FOSSEE"
+                  width="160"
+                  height="56"
                   className="h-14 object-contain"
                   />
                 <img
-                  src="/logos/iitblogo.png"
+                  src="/logos/iitblogo.webp"
                   alt="IIT Bombay"
+                  width="160"
+                  height="56"
                   className="h-14 object-contain"
                   />
               </div>
@@ -212,7 +218,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <p className="mt-4 text-center text-xs text-surface-400">
+            <p className="mt-4 text-center text-xs text-surface-500">
               Developed by Sparsh Khatwani
             </p>
           </div>

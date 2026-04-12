@@ -29,9 +29,9 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
           >
             <div className="flex items-center gap-2">
-              {/* <img src="/logos/iitblogo.png" alt="IITB" className="h-10 w-auto brightness-0 invert" /> */}
+              {/* <img src="/logos/iitblogo.webp" alt="IITB" className="h-10 w-auto brightness-0 invert" width="160" height="40" /> */}
               {/* <div className="h-8 w-[1px] bg-white/20 mx-1"></div> */}
-              <img src="/logos/fosseelogo.png" alt="FOSSEE" className="h-10 w-auto" />
+              <img src="/logos/fosseelogo.webp" alt="FOSSEE" className="h-10 w-auto" width="160" height="40" />
             </div>
             <div className="hidden lg:flex flex-col ml-1">
               <span className="text-white font-bold text-lg tracking-tight group-hover:text-primary-300 transition-colors leading-tight">

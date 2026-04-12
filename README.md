@@ -52,6 +52,9 @@ The redesign prioritizes:
 - 🔍 **Search Engine Optimization**: Implemented dynamic meta-tag injection for every route (titles, descriptions, canonical links) to ensure maximum crawlability.
 - ⏳ **Advanced Loading Logic**: Center-aligned spinner logic and skeleton-ready states ensure a smooth "Perceived Performance" even on slower connections.
 
+**Performance Metrics (Lighthouse Devtools):**  
+<img src="./screenshots/pfmetrics.png" width="600" alt="Performance Metrics" />
+
 ---
 
 ## ✨ Visual Showcase

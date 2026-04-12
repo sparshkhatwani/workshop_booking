@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import SEO from '../components/SEO';
-import heroBg from '../assets/hero-bg.jpg';
 
 /* ── Typewriter hook ─────────────────────────────────────────── */
 function useTypewriter(words, { typingSpeed = 80, deletingSpeed = 45, pauseMs = 2000 } = {}) {
@@ -90,7 +89,7 @@ export default function HomePage() {
         {/* ── Hero ──────────────────────────────────────────── */}
         <section
           className="relative min-h-[92vh] flex items-center justify-center text-center overflow-hidden bg-cover bg-center md:bg-fixed"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          style={{ backgroundImage: `url('/logos/img1.webp')` }}
         >
           {/* Overlay */}
           <div className="absolute inset-0 bg-gray-950/65 backdrop-blur-[2px]" />
@@ -118,7 +117,7 @@ export default function HomePage() {
             </h1>
 
             {/* Sub */}
-            <p className="text-lg sm:text-xl text-white/65 max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/80 max-w-2xl leading-relaxed">
               Join the FOSSEE initiative by IIT Bombay. Empower your institution with
               world-class open-source workshops delivered by industry-leading instructors.
             </p>
@@ -167,7 +166,7 @@ export default function HomePage() {
                 <span className="text-3xl font-extrabold tracking-tight text-indigo-600 dark:text-indigo-400">
                   {s.value}
                 </span>
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-black dark:text-white">
                   {s.label}
                 </span>
               </div>
@@ -211,7 +210,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
                       {f.title}
                     </h3>
-                    <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+                    <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                       {f.desc}
                     </p>
                   </div>
@@ -229,20 +228,20 @@ export default function HomePage() {
               {/* Background image */}
               <div
                 className="absolute inset-0 bg-cover bg-center grayscale opacity-20"
-                style={{ backgroundImage: `url(${heroBg})` }}
+                style={{ backgroundImage: `url('/logos/img1.webp')` }}
               />
               {/* Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-700" />
 
               {/* Content */}
               <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">
                   Ready to begin?
                 </p>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
                   Propose a Workshop Today
                 </h2>
-                <p className="text-lg text-white/65 leading-relaxed max-w-xl">
+                <p className="text-lg text-white/85 leading-relaxed max-w-xl">
                   Take the first step in transforming your academic environment. Join the FOSSEE
                   community and bridge the gap between theory and innovation.
                 </p>
