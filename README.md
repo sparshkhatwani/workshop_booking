@@ -161,6 +161,7 @@ Follow these steps to get the environment running locally:
 # 1. Create and activate a virtual environment 
 python -m venv venv
 venv\Scripts\activate # Windows
+# source venv/bin/activate for Linux / Mac
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -168,7 +169,8 @@ pip install -r requirements.txt
 # 3. Apply database migrations
 python manage.py migrate
 
-# 4. Generate Sample Data (Highly Recommended)
+# 4 (Optional). Generate Sample Data & Admin User (Highly Recommended)
+# This securely creates the superuser (admin / admin123) with a verified frontend profile!
 python seed_data.py
 
 # 5. Start the backend development server

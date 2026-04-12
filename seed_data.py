@@ -61,7 +61,34 @@ def seed():
             print(f"Attachment created for {types[0].name}")
 
     # 4. Users (Instructors and Coordinators)
-    # Already have admin as coordinator (set up in previous turn)
+    # Create the Admin Superuser
+    admin_user, admin_created = User.objects.get_or_create(
+        username='admin',
+        defaults={
+            'email': 'admin@example.com',
+            'first_name': 'Admin',
+            'last_name': 'User',
+            'is_superuser': True,
+            'is_staff': True
+        }
+    )
+    if admin_created:
+        admin_user.set_password('admin123')
+        admin_user.save()
+        admin_user.groups.add(instructor_group)
+        
+    Profile.objects.update_or_create(
+        user=admin_user,
+        defaults={
+            'institute': 'FOSSEE HQ',
+            'department': 'computer engineering',
+            'phone_number': '0000000000',
+            'position': 'instructor',
+            'is_email_verified': True,
+            'state': 'IN-MH'
+        }
+    )
+    print(f"Admin / Superuser created")
     
     # Create an Instructor
     instr_user, created = User.objects.get_or_create(
