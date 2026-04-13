@@ -200,6 +200,7 @@ __NOTE__: Check `docs/Getting_Started.md` for more historical info on the backen
 
 - **Name**: Sparsh Khatwani
 - **Institution**: VIT Bhopal
+- **College Email**: [sparsh.23bce10090@vitbhopal.ac.in](mailto:sparsh.23bce10090@vitbhopal.ac.in)
 - **Email**: [sparsh.khatwani@gmail.com](mailto:sparsh.khatwani@gmail.com)
 - **Repository**: [sparshkhatwani/workshop_booking](https://github.com/sparshkhatwani/workshop_booking)
 
