@@ -108,9 +108,9 @@ The redesign prioritizes:
 <br/>
 
 **Responsiveness Demo:**  
-<img src="./screenshots/newresp.png" width="600" alt="Responsive 1" />
-<img src="./screenshots/newresp1.png" width="600" alt="Responsive 2" />
-<img src="./screenshots/newresp2.png" width="600" alt="Responsive 3" />
+<img src="./screenshots/newresp.png" width="200" alt="Responsive 1" />
+<img src="./screenshots/newresp1.png" width="200" alt="Responsive 2" />
+<img src="./screenshots/newresp2.png" width="200" alt="Responsive 3" />
 
 ---
 
